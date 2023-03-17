@@ -6,6 +6,9 @@ const decimalBtn = document.querySelector("#deci-btn");
 const equalsBtn = document.querySelector("#eq-btn");
 const prevDisplay = document.querySelector(".upper-display");
 const currDisplay = document.querySelector(".lower-display");
+let currOperation = null;
+let firstOperand = "";
+let secondOperand = "";
 
 // ADD EVENT LISTENERS FOR NUMS
 numBtns.forEach((numBtn) => {
@@ -14,7 +17,7 @@ numBtns.forEach((numBtn) => {
 
 // ADD EVENT LISTENERS FOR OPERATORS
 operatorBtns.forEach((opBtn) => {
-	opBtn.addEventListener("click", chooseOperator);
+	opBtn.addEventListener("click", () => setOperation(opBtn.textContent));
 });
 
 // ADD EVENT LISTENERS FOR DECIMAL, CLEAR, DELETE, & EQUALS
@@ -42,8 +45,13 @@ function addDecimal() {
 	}
 }
 
-// CHOOSE OPERATOR FUNCTION
-function chooseOperator() {}
+// SET OPERATION FUNCTION
+function setOperation(operator) {
+	firstOperand = currDisplay.textContent;
+	currDisplay.textContent = "0";
+	currOperation = operator;
+	prevDisplay.textContent = `${firstOperand} ${currOperation}`;
+}
 
 // CLEAR FUNCTION
 function clear() {
@@ -52,7 +60,9 @@ function clear() {
 }
 
 // DELETE LAST FUNCTION
-function deleteLast() {}
+function deleteLast() {
+	currDisplay.textContent = currDisplay.textContent.toString().slice(0, -1);
+}
 
 // BASIC MATH FUNCTIONS
 function add(x, y) {
