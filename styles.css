@@ -31,9 +31,14 @@ body {
 h1 {
 	text-align: center;
 	width: 30%;
-	margin: 2rem 0 3rem 0;
+	margin: 2rem 0;
 	font-weight: 300;
 	border-bottom: var(--border);
+}
+
+p {
+	margin-bottom: 1rem;
+	font-weight: 200;
 }
 
 /* ALL ELEMENTS WITH DISPLAY: FLEX; */

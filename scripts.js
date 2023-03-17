@@ -24,7 +24,7 @@ operatorBtns.forEach((opBtn) => {
 decimalBtn.addEventListener("click", addDecimal);
 clearBtn.addEventListener("click", clear);
 deleteBtn.addEventListener("click", deleteLast);
-equalsBtn.addEventListener("click", operate);
+equalsBtn.addEventListener("click", evaluate);
 
 // DISPLAY NUMBER FUNCTION
 function displayNums(num) {
@@ -82,4 +82,37 @@ function divide(x, y) {
 }
 
 // OPERATE / CALCULATE FUNCTION
-function operate(num1, num2, operator) {}
+function operate(num1, num2, operator) {
+	num1 = Number(num1);
+	num2 = Number(num2);
+
+	switch (operator) {
+		case "+":
+			return add(num1, num2);
+		case "-":
+			return subtract(num1, num2);
+		case "*":
+			return multiply(num1, num2);
+		case "/":
+			return divide(num1, num2);
+		default:
+			return null;
+	}
+}
+
+// EVALUATE THE PROBLEM & CALL OPERATE IF VALID
+function evaluate() {
+	if (currOperation === null) {
+		return;
+	} else if (currOperation === "/" && currDisplay.textContent === "0") {
+		alert(`Don't try dividing by 0! It leads only to heartbreak...`);
+		return;
+	} else {
+		secondOperand = currDisplay.textContent;
+		currDisplay.textContent =
+			Math.round(operate(firstOperand, secondOperand, currOperation) * 100) /
+			100;
+		prevDisplay.textContent = `${firstOperand} ${currOperation} ${secondOperand} =`;
+		currOperation = null;
+	}
+}
