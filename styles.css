@@ -3,8 +3,10 @@
 
 /* VARIABLES */
 :root {
-	--primary: #54bdff;
-	--border: 1px solid var(--primary);
+	--gray: #252525;
+	--dark-blue: #263748;
+	--light-blue: #54bdff;
+	--border: 1px solid var(--light-blue);
 	--radius: 10px;
 }
 
@@ -20,7 +22,7 @@
 body {
 	height: auto;
 	width: 100vw;
-	background-color: #151515;
+	background-color: var(--gray);
 	overflow-x: hidden;
 	flex-direction: column;
 	align-items: center;
@@ -29,7 +31,7 @@ body {
 h1 {
 	text-align: center;
 	width: 30%;
-	margin: 1rem 0 2rem 0;
+	margin: 2rem 0 3rem 0;
 	font-weight: 300;
 	border-bottom: var(--border);
 }
@@ -37,42 +39,57 @@ h1 {
 /* ALL ELEMENTS WITH DISPLAY: FLEX; */
 body,
 .btns,
-.nums,
-.operators {
+.big-btns,
+.small-btns {
 	display: flex;
 }
 
 /* CONTAINER */
 .container {
-	height: 50vh;
+	height: fit-content;
 	width: 40%;
+	background-color: var(--dark-blue);
 	border: var(--border);
 	border-radius: var(--radius);
+	overflow: hidden;
 }
 
-/* DISPLAY */
-.display {
+/* DISPLAYS */
+.displays {
 	width: 100%;
-	height: 5rem;
+	height: 6rem;
 	padding: 1rem;
 	text-align: right;
-	font-size: 2rem;
+	background-color: var(--gray);
 	border-bottom: var(--border);
+}
+
+.upper-display {
+	height: 40%;
+	width: 100%;
+	font-weight: 200;
+}
+
+.lower-display {
+	height: 50%;
+	width: 100%;
+	font-size: 2rem;
 }
 
 /* BUTTONS */
 .btns {
-	height: calc(100% - 5rem);
+	height: calc(100% - 6rem);
 	width: 100%;
 	padding: 0.5rem;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
 }
 
 button {
 	cursor: pointer;
 	font-size: 2rem;
 	font-weight: 200;
-	background-color: transparent;
+	background-color: var(--gray);
 	border: var(--border);
 	border-radius: var(--radius);
 	transition: all 0.15s linear;
@@ -80,38 +97,32 @@ button {
 
 button:hover {
 	font-weight: 400;
-	box-shadow: 0 0 0.5rem var(--primary);
+	box-shadow: 0 0 0.5rem var(--light-blue);
 }
 
 button:active {
 	transform: scale(0.9);
 }
 
-/* NUMS */
-.nums {
-	height: 100%;
-	width: 85%;
+/* LARGE BTNS (CLEAR & DELETE) */
+.big-btns {
+	width: 100%;
+}
+
+.big-btns button {
+	height: 3rem;
+	width: 45%;
+	margin: 0.5rem auto;
+}
+
+/* SMALL BTNS */
+.small-btns {
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
-.num {
-	height: 5rem;
-	width: 5rem;
-	margin: 0.25rem;
-}
-
-/* OPERATORS */
-.operators {
-	height: calc(100% + 1rem);
-	width: 25%;
-	margin: -0.5rem -0.5rem 0 0;
-	border-left: var(--border);
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-}
-
-.operator {
-	height: 4.5rem;
-	width: 4rem;
+.small-btns button {
+	height: 4rem;
+	width: 20%;
+	margin: 0.5rem;
 }

@@ -11,29 +11,36 @@
 	<body>
 		<h1>JS Calculator</h1>
 		<div class="container">
-			<div class="display">_</div>
+			<div class="displays">
+				<p class="upper-display">0</p>
+				<p class="lower-display">0</p>
+			</div>
 			<div class="btns">
-				<div class="nums">
-					<button class="num">7</button>
-					<button class="num">8</button>
-					<button class="num">9</button>
-					<button class="num">4</button>
-					<button class="num">5</button>
-					<button class="num">6</button>
-					<button class="num">1</button>
-					<button class="num">2</button>
-					<button class="num">3</button>
-					<button class="num">0</button>
-					<button class="num">.</button>
-					<button class="num">AC</button>
+				<div class="big-btns">
+					<button id="clear-btn">CLEAR</button>
+					<button id="del-btn">DELETE</button>
 				</div>
 
-				<div class="operators">
-					<button class="operator">/</button>
-					<button class="operator">*</button>
-					<button class="operator">-</button>
-					<button class="operator">+</button>
-					<button class="operator">=</button>
+				<div class="small-btns">
+					<button data-number>7</button>
+					<button data-number>8</button>
+					<button data-number>9</button>
+					<button data-operator>/</button>
+
+					<button data-number>4</button>
+					<button data-number>5</button>
+					<button data-number>6</button>
+					<button data-operator>*</button>
+
+					<button data-number>1</button>
+					<button data-number>2</button>
+					<button data-number>3</button>
+					<button data-operator>-</button>
+
+					<button id="deci-btn">.</button>
+					<button data-number>0</button>
+					<button id="eq-btn">=</button>
+					<button data-operator>+</button>
 				</div>
 			</div>
 		</div>
