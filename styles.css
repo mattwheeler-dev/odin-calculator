@@ -1,133 +1,97 @@
-/* GOOGLE FONT IMPORT [UBUNTU] */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;300;400&display=swap');
 
-/* VARIABLES */
-:root {
-	--gray: #252525;
-	--dark-blue: #263748;
-	--light-blue: #54bdff;
-	--border: 1px solid var(--light-blue);
-	--radius: 10px;
-}
-
-/* DEFAULTS */
 * {
 	margin: 0;
 	padding: 0;
-	color: #fff;
 	box-sizing: border-box;
-	font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+	font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
 
 body {
-	height: auto;
-	width: 100vw;
-	background-color: var(--gray);
-	overflow-x: hidden;
-	flex-direction: column;
-	align-items: center;
+	height: 100dvh;
+	width: 100dvw;
+	color: #fff;
+	background-color: #151515;
+	overflow: clip;
+}
+
+header {
+	margin: 2rem 0;
+	text-align: center;
 }
 
 h1 {
-	text-align: center;
-	width: 30%;
-	margin: 2rem 0;
-	font-weight: 300;
-	border-bottom: var(--border);
-}
-
-p {
+	font-size: 2.5rem;
 	margin-bottom: 1rem;
-	font-weight: 200;
 }
 
-/* ALL ELEMENTS WITH DISPLAY: FLEX; */
-body,
-.btns,
-.big-btns,
-.small-btns {
-	display: flex;
+main {
+	display: grid;
+	place-items: center;
 }
 
-/* CONTAINER */
-.container {
-	height: fit-content;
-	width: 40%;
-	background-color: var(--dark-blue);
-	border: var(--border);
-	border-radius: var(--radius);
-	overflow: hidden;
+#calculator {
+	width: 50%;
+	min-width: 300px;
+	max-width: 600px;
+	padding: 2rem 1rem;
+	background-color: #182e42;
+	border: 2px solid #fff;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem #000;
+	overflow: clip;
 }
 
-/* DISPLAYS */
-.displays {
-	width: 100%;
-	height: 6rem;
-	padding: 1rem;
+#displays {
+	padding: 1rem 2rem;
 	text-align: right;
-	background-color: var(--gray);
-	border-bottom: var(--border);
+	background-color: #000;
 }
 
-.upper-display {
-	height: 40%;
-	width: 100%;
-	font-weight: 200;
-}
-
-.lower-display {
-	height: 50%;
-	width: 100%;
+#lower-display {
+	margin-top: 1.5rem;
 	font-size: 2rem;
 }
 
-/* BUTTONS */
-.btns {
-	height: calc(100% - 6rem);
-	width: 100%;
-	padding: 0.5rem;
-	flex-direction: column;
+#big-btns,
+#small-btns {
+	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
+	justify-content: space-evenly;
 }
 
 button {
 	cursor: pointer;
-	font-size: 2rem;
-	font-weight: 200;
-	background-color: var(--gray);
-	border: var(--border);
-	border-radius: var(--radius);
-	transition: all 0.15s linear;
+	height: 3rem;
+	margin-top: 1rem;
+	font-size: 1rem;
+	color: #fff;
+	background-color: #252525;
+	border: 1px solid #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 0.25rem #000;
+	transition: all 0.1s ease;
 }
 
 button:hover {
-	font-weight: 400;
-	box-shadow: 0 0 0.5rem var(--light-blue);
+	background-color: #000;
+	scale: 1.1;
 }
 
 button:active {
-	transform: scale(0.9);
+	scale: 0.9;
 }
 
-/* LARGE BTNS (CLEAR & DELETE) */
-.big-btns {
-	width: 100%;
+#big-btns button {
+	width: 7rem;
 }
 
-.big-btns button {
-	height: 3rem;
-	width: 45%;
-	margin: 0.5rem auto;
+#small-btns button {
+	width: 21%;
 }
 
-/* SMALL BTNS */
-.small-btns {
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-.small-btns button {
-	height: 4rem;
-	width: 20%;
-	margin: 0.5rem;
+footer {
+	margin-top: 2rem;
+	text-align: center;
 }
